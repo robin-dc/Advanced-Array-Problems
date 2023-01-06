@@ -27,7 +27,32 @@ console.log(twoDimensionalProduct(arr2)); // 88
 
 let twoDimensionalProduct = function(arr) {
     // Your code here
+    // return arr.reduce(function(accum, item) {
+    //   return accum * item.reduce(function(acc, curr) {
+    //     return acc * curr;
+    //   }, 1);
+    // }, 1);
+
+  let outerArray = arr.reduce(function(accum, item){
+    let innerArray = item.reduce(function(acc,curr){
+      return acc * curr
+    }, 1)
+    return accum * innerArray
+  }, 1)
+  return outerArray
 };
+let arr1 = [
+  [6, 4],
+  [5],
+  [3, 1]
+];
+console.log(twoDimensionalProduct(arr1)); // 360
+
+let arr2 = [
+  [11, 4],
+  [2]
+];
+console.log(twoDimensionalProduct(arr2)); // 88
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
 
 try {
